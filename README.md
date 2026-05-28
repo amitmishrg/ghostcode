@@ -63,6 +63,31 @@ If you prefer a managed turnkey experience, Claude Code is strong. If you want t
 - [Bun](https://bun.sh)
 - Anthropic and/or OpenAI API key
 
+## Use As Installed CLI
+
+Once published, end users can install and run GhostCode globally:
+
+```bash
+npm install -g @ghostcode/cli
+# or
+bun install -g @ghostcode/cli
+```
+
+Then, from any project folder:
+
+```bash
+cd /path/to/your-project
+ghostcode
+```
+
+Recommended first-run setup:
+
+```bash
+export ANTHROPIC_API_KEY=sk-ant-...
+export OPENAI_API_KEY=sk-proj-...
+ghostcode
+```
+
 ## Quick Start
 
 ### 1) Install

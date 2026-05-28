@@ -10,7 +10,9 @@
   },
   "files": [
     "bin",
-    "dist"
+    "dist",
+    "README.md",
+    "screenshots"
   ],
   "publishConfig": {
     "access": "public"
