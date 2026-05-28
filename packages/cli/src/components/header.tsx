@@ -8,10 +8,7 @@ import { getRuntimeCwd } from '../lib/config-loader';
 
 export function Header() {
   const { colors, currentTheme } = useTheme();
-  const projectName = useMemo(
-    () => basename(resolve(getRuntimeCwd())),
-    [],
-  );
+  const projectName = useMemo(() => basename(resolve(getRuntimeCwd())), []);
 
   return (
     <box
@@ -32,10 +29,6 @@ export function Header() {
       </box>
 
       <ScanLine width={52} />
-
-      <text fg={colors.dimSeparator} attributes={TextAttributes.DIM}>
-        terminal coding harness
-      </text>
 
       <box flexDirection="row" gap={1} alignItems="center">
         <text fg={colors.dimSeparator} attributes={TextAttributes.DIM}>

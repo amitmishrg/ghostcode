@@ -57,7 +57,7 @@ If you prefer a managed turnkey experience, Claude Code is strong. If you want a
 
 | Package | Purpose |
 | --- | --- |
-| `@ghostcode/cli` | Harness runtime — TUI, tools, sessions (`ghostcode` binary) |
+| `ghostcode-cli` | Harness runtime — TUI, tools, sessions (`ghostcode` binary) |
 | `@ghostcode/shared` | Harness contracts — models, tool schemas, system prompts |
 
 ## Prerequisites
@@ -70,9 +70,9 @@ If you prefer a managed turnkey experience, Claude Code is strong. If you want a
 Once published, install the harness globally:
 
 ```bash
-npm install -g @ghostcode/cli
+npm install -g ghostcode-cli
 # or
-bun install -g @ghostcode/cli
+bun install -g ghostcode-cli
 ```
 
 Then, from any project folder:
@@ -125,7 +125,7 @@ Run via bin in local source mode:
 ```bash
 GHOSTCODE_DEV=1 ghostcode
 # or
-bun run --filter @ghostcode/cli dev:bin
+bun run --filter ghostcode-cli dev:bin
 ```
 
 ## Configuration & Storage
@@ -175,7 +175,7 @@ Ghost.local.md
 | `bun run link:cli` | Link `ghostcode` globally |
 | `bun run pack:cli` | Generate npm tarball for CLI |
 | `bun run release:check` | Build + pack release artifact |
-| `bun run publish:cli` | Publish `@ghostcode/cli` via Bun |
+| `bun run publish:cli` | Publish `ghostcode-cli` via Bun |
 
 ## Modes
 

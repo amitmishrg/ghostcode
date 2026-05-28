@@ -9,7 +9,7 @@
       },
     },
     "packages/cli": {
-      "name": "@ghostcode/cli",
+      "name": "ghostcode-cli",
       "version": "1.0.0",
       "bin": {
         "ghostcode": "./bin/ghostcode",
@@ -62,8 +62,6 @@
     "@ai-sdk/react": ["@ai-sdk/react@3.0.192", "", { "dependencies": { "@ai-sdk/provider-utils": "4.0.27", "ai": "6.0.190", "swr": "^2.2.5", "throttleit": "2.1.0" }, "peerDependencies": { "react": "^18 || ~19.0.1 || ~19.1.2 || ^19.2.1" } }, "sha512-QB7ViYcM1o2zN6Zo1nVD1FqAkiivCPOi1vmT/OmWAxctmXUGTdWOL7MBs9q3zuzPbZpkty4xDERwemWYoZx6Kw=="],
 
     "@dimforge/rapier2d-simd-compat": ["@dimforge/rapier2d-simd-compat@0.17.3", "", {}, "sha512-bijvwWz6NHsNj5e5i1vtd3dU2pDhthSaTUZSh14DUGGKJfw8eMnlWZsxwHBxB/a3AXVNDjL9abuHw1k9FGR+jg=="],
-
-    "@ghostcode/cli": ["@ghostcode/cli@workspace:packages/cli"],
 
     "@ghostcode/shared": ["@ghostcode/shared@workspace:packages/shared"],
 
@@ -212,6 +210,8 @@
     "file-type": ["file-type@16.5.4", "", { "dependencies": { "readable-web-to-node-stream": "^3.0.0", "strtok3": "^6.2.4", "token-types": "^4.1.1" } }, "sha512-/yFHK0aGjFEgDJjEKP0pWCplsPFPhwyfwevf/pVxiN0tmE4L9LmwWxWukdJSHdoCli4VgQLehjJtwQBnqmsKcw=="],
 
     "get-east-asian-width": ["get-east-asian-width@1.6.0", "", {}, "sha512-QRbvDIbx6YklUe6RxeTeleMR0yv3cYH6PsPZHcnVn7xv7zO1BHN8r0XETu8n6Ye3Q+ahtSarc3WgtNWmehIBfA=="],
+
+    "ghostcode-cli": ["ghostcode-cli@workspace:packages/cli"],
 
     "gifwrap": ["gifwrap@0.10.1", "", { "dependencies": { "image-q": "^4.0.0", "omggif": "^1.0.10" } }, "sha512-2760b1vpJHNmLzZ/ubTtNnEx5WApN/PYWJvXvgS+tL1egTTthayFYIQQNi136FLEDcN/IyEY2EcGpIITD6eYUw=="],
 

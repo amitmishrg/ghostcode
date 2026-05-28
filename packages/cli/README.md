@@ -7,13 +7,13 @@ GhostCode CLI is the harness runtime: a local-first loop for planning, building,
 ## Install
 
 ```bash
-npm install -g @ghostcode/cli
+npm install -g ghostcode-cli
 ```
 
 or
 
 ```bash
-bun install -g @ghostcode/cli
+bun install -g ghostcode-cli
 ```
 
 ## Run

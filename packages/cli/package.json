@@ -1,5 +1,5 @@
 {
-  "name": "@ghostcode/cli",
+  "name": "ghostcode-cli",
   "version": "1.0.0",
   "description": "Provider-agnostic terminal coding harness — local TUI, PLAN/BUILD modes, and your API keys.",
   "module": "dist/index.js",
