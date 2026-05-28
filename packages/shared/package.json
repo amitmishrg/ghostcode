@@ -1,0 +1,12 @@
+{
+    "name": "@ghostcode/shared",
+    "type": "module",
+    "private": true,
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "dependencies": {
+        "ai": "^6.0.190",
+        "zod": "^4.3.6"
+    }
+}

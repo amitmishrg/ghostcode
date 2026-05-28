@@ -1,0 +1,15 @@
+{
+    "name": "ghostcode",
+    "version": "1.0.0",
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "dev:cli": "bun run --watch packages/cli/src/index.tsx",
+        "build:cli": "bun run --filter @ghostcode/cli build",
+        "link:cli": "bun run build:cli && cd packages/cli && bun link"
+    },
+    "dependencies": {
+        "dotenv": "^17.4.2"
+    }
+}
