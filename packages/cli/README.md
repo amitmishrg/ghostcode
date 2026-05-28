@@ -46,19 +46,19 @@ Inside the harness:
 
 ### Launch
 
-![GhostCode launch screen](./screenshots/launch-screen.png)
+![GhostCode launch screen](https://raw.githubusercontent.com/amitmishrg/ghostcode/refs/heads/main/docs/screenshots/launch-screen.png)
 
 ### Session
 
-![GhostCode session view](./screenshots/session-view.png)
+![GhostCode session view](https://raw.githubusercontent.com/amitmishrg/ghostcode/refs/heads/main/docs/screenshots/session-view.png)
 
 ### Theme Picker
 
-![GhostCode theme picker](./screenshots/theme-picker.png)
+![GhostCode theme picker](https://raw.githubusercontent.com/amitmishrg/ghostcode/refs/heads/main/docs/screenshots/theme-picker.png)
 
 ### Command Palette
 
-![GhostCode command palette](./screenshots/command-palette.png)
+![GhostCode command palette](https://raw.githubusercontent.com/amitmishrg/ghostcode/refs/heads/main/docs/screenshots/command-palette.png)
 
 ## Environment variables
 
@@ -74,4 +74,4 @@ Inside the harness:
 - Session persistence per project
 - Project memory via `Ghost.md`
 
-For full product docs, architecture, and contributor setup, see the repository root [README.md](../../README.md).
+For full product docs, architecture, and contributor setup, see the repository root [README.md](https://github.com/amitmishrg/ghostcode/blob/main/README.md).
