@@ -175,7 +175,7 @@ Ghost.local.md
 | `bun run link:cli` | Link `ghostcode` globally |
 | `bun run pack:cli` | Generate npm tarball for CLI |
 | `bun run release:check` | Build + pack release artifact |
-| `bun run publish:cli` | Publish `ghostcode-cli` via Bun |
+| `bun run publish:cli` | Bump patch version and publish `ghostcode-cli` |
 
 ## Modes
 
