@@ -10,7 +10,7 @@
         "link:cli": "bun run build:cli && cd packages/cli && bun link",
         "pack:cli": "bun run --filter ghostcode-cli pack",
         "release:check": "bun run build:cli && bun run pack:cli",
-        "publish:cli": "npm version patch --workspace packages/cli --no-git-tag-version && cd packages/cli && bun publish"
+        "publish:cli": "node -e \"const fs=require('fs');const p='packages/cli/package.json';const pkg=JSON.parse(fs.readFileSync(p,'utf8'));const v=String(pkg.version||'0.0.0').split('.').map(Number);if(v.length!==3||v.some(Number.isNaN)) throw new Error('Invalid semver in packages/cli/package.json');v[2]+=1;pkg.version=v.join('.');fs.writeFileSync(p, JSON.stringify(pkg,null,2)+'\\n');console.log('ghostcode-cli');console.log('v'+pkg.version);\" && cd packages/cli && bun publish"
     },
     "dependencies": {
         "dotenv": "^17.4.2"

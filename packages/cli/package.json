@@ -1,6 +1,6 @@
 {
   "name": "ghostcode-cli",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Provider-agnostic terminal coding harness — local TUI, PLAN/BUILD modes, and your API keys.",
   "keywords": [
     "ghostcode",
