@@ -116,7 +116,7 @@ export function LaunchBriefingPanel() {
     <box flexDirection="column" gap={1} width="100%" paddingBottom={1}>
       <box flexDirection="row" gap={1} alignItems="center">
         <text fg={colors.primary} attributes={TextAttributes.BOLD}>
-          [ CAPABILITIES ]
+          [ HARNESS ]
         </text>
         <text fg={colors.dimSeparator} attributes={TextAttributes.DIM}>
           {briefing.projectName}

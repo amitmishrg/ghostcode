@@ -1,28 +1,30 @@
 # GhostCode
 
-GhostCode is a provider-agnostic, terminal-native coding agent you can run fully local with your own API keys.
+> **Your provider-agnostic terminal coding harness.** Own the loop — models, tools, memory, and UI.
 
-It gives you a focused TUI, explicit PLAN/BUILD control, local tool execution, project memory, and persistent session history without requiring a hosted account stack.
+GhostCode is a local-first coding harness you run in your terminal with your own API keys. No hosted account stack, no vendor lock-in on models.
 
-## Why GhostCode
+The harness gives you a focused TUI, explicit PLAN/BUILD control, local tool execution, project memory, and persistent session history — all in one place you control.
 
-- **Provider-agnostic by design**: choose Anthropic *or* OpenAI models at runtime.
+## Why this harness
+
+- **Provider-agnostic by design**: swap Anthropic and OpenAI models at runtime.
 - **Runs in your terminal**: no browser tab context-switching.
-- **Local-first architecture**: no server/database dependency in your app runtime.
+- **Local-first runtime**: no server or database dependency in the harness loop.
 - **Safer edit loop**: PLAN mode for analysis, BUILD mode for implementation.
 - **Project memory**: layered `Ghost.md` loading for reusable team instructions.
 - **Session persistence**: every conversation stored per-project as JSONL.
 
 ## GhostCode vs Claude Code (quick view)
 
-GhostCode is not trying to clone Claude Code; it optimizes for teams that want a provider-agnostic, hackable CLI foundation:
+GhostCode is not trying to clone Claude Code. It is a harness you can shape — prompts, tools, config layers, and TUI chrome:
 
-- **Model flexibility**: use Claude models and GPT models from one interface.
+- **Model flexibility**: Claude and GPT from one harness.
 - **Own the runtime**: full source control over prompts, tools, and UI.
-- **Config layering**: project/team/local settings with deterministic precedence.
+- **Config layering**: project, team, and local settings with deterministic precedence.
 - **Customizable UX**: themed HUD-style TUI and command/dialog system.
 
-If you prefer a managed turnkey experience, Claude Code is strong. If you want to tailor the coding agent stack to your workflows and providers, GhostCode is a better fit.
+If you prefer a managed turnkey experience, Claude Code is strong. If you want a harness you own and can extend, GhostCode is the better fit.
 
 ## Screenshots
 
@@ -42,7 +44,7 @@ If you prefer a managed turnkey experience, Claude Code is strong. If you want t
 
 ![GhostCode command palette](docs/screenshots/command-palette.png)
 
-## Core Features
+## Harness capabilities
 
 - **Terminal UI**: full-screen, keyboard-driven chat interface.
 - **PLAN / BUILD modes**: read-only planning or full file/shell execution.
@@ -55,8 +57,8 @@ If you prefer a managed turnkey experience, Claude Code is strong. If you want t
 
 | Package | Purpose |
 | --- | --- |
-| `@ghostcode/cli` | Bun-based terminal app and `ghostcode` binary |
-| `@ghostcode/shared` | Shared model registry, tool schemas, prompt contracts |
+| `@ghostcode/cli` | Harness runtime — TUI, tools, sessions (`ghostcode` binary) |
+| `@ghostcode/shared` | Harness contracts — models, tool schemas, system prompts |
 
 ## Prerequisites
 
@@ -65,7 +67,7 @@ If you prefer a managed turnkey experience, Claude Code is strong. If you want t
 
 ## Use As Installed CLI
 
-Once published, end users can install and run GhostCode globally:
+Once published, install the harness globally:
 
 ```bash
 npm install -g @ghostcode/cli

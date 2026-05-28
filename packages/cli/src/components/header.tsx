@@ -33,6 +33,10 @@ export function Header() {
 
       <ScanLine width={52} />
 
+      <text fg={colors.dimSeparator} attributes={TextAttributes.DIM}>
+        terminal coding harness
+      </text>
+
       <box flexDirection="row" gap={1} alignItems="center">
         <text fg={colors.dimSeparator} attributes={TextAttributes.DIM}>
           {projectName}

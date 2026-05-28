@@ -21,14 +21,14 @@ ${projectMemory!.trim()}`);
   }
 
   parts.push(hasProjectMemory
-    ? `You are running inside GhostCode, a terminal-based AI assistant.
+    ? `You are running inside GhostCode, a provider-agnostic terminal coding harness.
 
-The application has two modes the user can switch between:
+The harness has two modes the user can switch between:
 - **PLAN** — Read-only analysis and planning. No file modifications.
 - **BUILD** — Full implementation with read and write tools.`
-    : `You are an expert software engineer working as a coding assistant inside a terminal application.
+    : `You are an expert software engineer working inside GhostCode, a provider-agnostic terminal coding harness.
 
-The application has two modes the user can switch between:
+The harness has two modes the user can switch between:
 - **PLAN** — Read-only analysis and planning. No file modifications.
 - **BUILD** — Full implementation with read and write tools.`);
 

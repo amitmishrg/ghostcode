@@ -1,8 +1,8 @@
 # GhostCode CLI
 
-Provider-agnostic, terminal-native AI coding assistant.
+> **Your provider-agnostic terminal coding harness.**
 
-GhostCode CLI runs fully local with your own API keys and supports both Anthropic and OpenAI models in one workflow.
+GhostCode CLI is the harness runtime: a local-first loop for planning, building, and shipping in your repo — with Anthropic or OpenAI models and your own API keys.
 
 ## Install
 
@@ -27,7 +27,7 @@ ghostcode
 ## Quick usage
 
 ```bash
-# Open interactive TUI
+# Open the harness TUI
 ghostcode
 
 # Set provider keys (one or both)
@@ -35,11 +35,12 @@ export ANTHROPIC_API_KEY=sk-ant-...
 export OPENAI_API_KEY=sk-proj-...
 ```
 
-Inside GhostCode:
-- `tab` to toggle PLAN/BUILD mode
-- `/models` to switch model
-- `/theme` to switch UI profile
-- `/sessions` to resume previous chats
+Inside the harness:
+
+- `tab` — toggle PLAN/BUILD mode
+- `/models` — switch model
+- `/theme` — switch UI profile
+- `/sessions` — resume previous chats
 
 ## Screenshots
 
@@ -61,11 +62,11 @@ Inside GhostCode:
 
 ## Environment variables
 
-- `ANTHROPIC_API_KEY` for Claude models
-- `OPENAI_API_KEY` for GPT models
-- `GHOSTCODE_CONFIG_DIR` to override default config path (`~/.ghostcode`)
+- `ANTHROPIC_API_KEY` — Claude models
+- `OPENAI_API_KEY` — GPT models
+- `GHOSTCODE_CONFIG_DIR` — override default config path (`~/.ghostcode`)
 
-## Highlights
+## Harness highlights
 
 - Full-screen terminal UI
 - PLAN/BUILD modes
@@ -73,4 +74,4 @@ Inside GhostCode:
 - Session persistence per project
 - Project memory via `Ghost.md`
 
-For full product documentation and screenshots, see the repository root `README.md`.
+For full product docs, architecture, and contributor setup, see the repository root [README.md](../../README.md).
