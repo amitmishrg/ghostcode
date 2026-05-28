@@ -62,12 +62,24 @@ If you prefer a managed turnkey experience, Claude Code is strong. If you want a
 
 ## Prerequisites
 
-- [Bun](https://bun.sh)
+- [Bun](https://bun.sh) (required runtime, including global npm installs)
 - Anthropic and/or OpenAI API key
+
+### Install Bun (required)
+
+```bash
+curl -fsSL https://bun.sh/install | bash
+```
+
+Then restart your terminal and verify:
+
+```bash
+bun --version
+```
 
 ## Use As Installed CLI
 
-Once published, install the harness globally:
+Once published, install the harness globally (Bun is still required to run `ghostcode`):
 
 ```bash
 npm install -g ghostcode-cli

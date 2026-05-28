@@ -4,6 +4,23 @@
 
 GhostCode CLI is the harness runtime: a local-first loop for planning, building, and shipping in your repo — with Anthropic or OpenAI models and your own API keys.
 
+## Runtime requirement
+
+`ghostcode-cli` currently requires [Bun](https://bun.sh) at runtime.
+Even if you install with `npm install -g ghostcode-cli`, the `ghostcode` command needs Bun installed on your machine.
+
+### Install Bun
+
+```bash
+curl -fsSL https://bun.sh/install | bash
+```
+
+Then restart your terminal and verify:
+
+```bash
+bun --version
+```
+
 ## Install
 
 ```bash

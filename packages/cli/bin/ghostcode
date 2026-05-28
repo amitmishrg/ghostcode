@@ -3,6 +3,27 @@
 const devEntry = '../src/index.tsx';
 const distEntry = '../dist/index.js';
 const forceDev = process.env.GHOSTCODE_DEV === '1';
+const version = '1.0.6';
+const args = process.argv.slice(2);
+
+if (args.includes('--version') || args.includes('-v')) {
+  console.log(version);
+  process.exit(0);
+}
+
+if (args.includes('--help') || args.includes('-h')) {
+  console.log(`GhostCode - Terminal coding harness
+
+Usage:
+  ghostcode
+  ghostcode --help
+  ghostcode --version
+
+Options:
+  -h, --help      Show help
+  -v, --version   Show version`);
+  process.exit(0);
+}
 
 try {
   await import(forceDev ? devEntry : distEntry);
