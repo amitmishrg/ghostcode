@@ -10,6 +10,7 @@
     },
     "packages/cli": {
       "name": "@ghostcode/cli",
+      "version": "1.0.0",
       "bin": {
         "ghostcode": "./bin/ghostcode",
       },
@@ -18,7 +19,6 @@
         "@ai-sdk/openai": "^3.0.64",
         "@ai-sdk/provider-utils": "^4.0.27",
         "@ai-sdk/react": "^3.0.192",
-        "@ghostcode/shared": "workspace:*",
         "@opentui/core": "^0.1.97",
         "@opentui/react": "^0.1.97",
         "ai": "^6.0.190",
@@ -31,6 +31,7 @@
         "zod": "^4.3.6",
       },
       "devDependencies": {
+        "@ghostcode/shared": "workspace:1.0.0",
         "@types/bun": "latest",
         "@types/react": "^19.2.14",
       },
@@ -40,6 +41,7 @@
     },
     "packages/shared": {
       "name": "@ghostcode/shared",
+      "version": "1.0.0",
       "dependencies": {
         "ai": "^6.0.190",
         "zod": "^4.3.6",

@@ -7,7 +7,10 @@
     "scripts": {
         "dev:cli": "bun run --watch packages/cli/src/index.tsx",
         "build:cli": "bun run --filter @ghostcode/cli build",
-        "link:cli": "bun run build:cli && cd packages/cli && bun link"
+        "link:cli": "bun run build:cli && cd packages/cli && bun link",
+        "pack:cli": "bun run --filter @ghostcode/cli pack",
+        "release:check": "bun run build:cli && bun run pack:cli",
+        "publish:cli": "cd packages/cli && bun publish"
     },
     "dependencies": {
         "dotenv": "^17.4.2"

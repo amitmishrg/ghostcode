@@ -1,41 +1,77 @@
 # GhostCode
 
-GhostCode is an AI pair programmer for your terminal. Chat in a full-screen TUI, plan changes read-only or switch to build mode to edit files and run commands in your current project — with persisted sessions and your choice of Claude or GPT models.
+GhostCode is a provider-agnostic, terminal-native coding agent you can run fully local with your own API keys.
 
-Runs entirely locally: no server, database, or auth required. Bring your own API keys via `export` or a project `.env` file.
+It gives you a focused TUI, explicit PLAN/BUILD control, local tool execution, project memory, and persistent session history without requiring a hosted account stack.
 
-## Features
+## Why GhostCode
 
-- **Terminal UI** — Full-screen chat experience in the terminal with session history
-- **PLAN / BUILD modes** — Read-only planning vs. full implementation with file edits and shell commands
-- **Local tool execution** — Tools run in your project directory (`readFile`, `writeFile`, `editFile`, `glob`, `grep`, `bash`)
-- **Multiple models** — Claude Sonnet, Haiku, Opus, and GPT-5.4
-- **Project memory** — Load instructions from `Ghost.md` files
-- **Session persistence** — JSONL transcripts stored per project under `~/.ghostcode/projects/`
+- **Provider-agnostic by design**: choose Anthropic *or* OpenAI models at runtime.
+- **Runs in your terminal**: no browser tab context-switching.
+- **Local-first architecture**: no server/database dependency in your app runtime.
+- **Safer edit loop**: PLAN mode for analysis, BUILD mode for implementation.
+- **Project memory**: layered `Ghost.md` loading for reusable team instructions.
+- **Session persistence**: every conversation stored per-project as JSONL.
 
-## Monorepo structure
+## GhostCode vs Claude Code (quick view)
 
-| Package             | Description                                               |
-| ------------------- | --------------------------------------------------------- |
-| `@ghostcode/cli`    | Terminal client (`ghostcode` binary)                      |
-| `@ghostcode/shared` | Shared Zod schemas, tool contracts, and model definitions |
+GhostCode is not trying to clone Claude Code; it optimizes for teams that want a provider-agnostic, hackable CLI foundation:
+
+- **Model flexibility**: use Claude models and GPT models from one interface.
+- **Own the runtime**: full source control over prompts, tools, and UI.
+- **Config layering**: project/team/local settings with deterministic precedence.
+- **Customizable UX**: themed HUD-style TUI and command/dialog system.
+
+If you prefer a managed turnkey experience, Claude Code is strong. If you want to tailor the coding agent stack to your workflows and providers, GhostCode is a better fit.
+
+## Screenshots
+
+### Launch Screen
+
+![GhostCode launch screen](docs/screenshots/launch-screen.png)
+
+### Session View (Markdown + Tooling)
+
+![GhostCode session view](docs/screenshots/session-view.png)
+
+### Theme Picker
+
+![GhostCode theme picker](docs/screenshots/theme-picker.png)
+
+### Command Palette
+
+![GhostCode command palette](docs/screenshots/command-palette.png)
+
+## Core Features
+
+- **Terminal UI**: full-screen, keyboard-driven chat interface.
+- **PLAN / BUILD modes**: read-only planning or full file/shell execution.
+- **Local toolchain**: `readFile`, `writeFile`, `editFile`, `glob`, `grep`, `bash`.
+- **Multi-model support**: Claude Sonnet/Haiku/Opus and GPT-5.4 family.
+- **Prompt memory**: global + project + local memory file merging.
+- **Session store**: append-only transcripts under `~/.ghostcode/projects/`.
+
+## Architecture
+
+| Package | Purpose |
+| --- | --- |
+| `@ghostcode/cli` | Bun-based terminal app and `ghostcode` binary |
+| `@ghostcode/shared` | Shared model registry, tool schemas, prompt contracts |
 
 ## Prerequisites
 
 - [Bun](https://bun.sh)
 - Anthropic and/or OpenAI API key
 
-## Getting started
+## Quick Start
 
-### 1. Install dependencies
+### 1) Install
 
 ```bash
 bun install
 ```
 
-### 2. Configure API keys
-
-Export keys in your shell:
+### 2) Configure keys
 
 ```bash
 export ANTHROPIC_API_KEY=sk-ant-...
@@ -44,89 +80,88 @@ export OPENAI_API_KEY=sk-proj-...
 
 Or copy [`.env.example`](.env.example) to `.env` in the project where you run `ghostcode`.
 
-You can also set keys in `~/.ghostcode/settings.json`:
-
-```json
-{
-  "env": {
-    "ANTHROPIC_API_KEY": "sk-ant-..."
-  },
-  "defaultModel": "claude-opus-4-6"
-}
-```
-
-Shell exports take precedence over settings files.
-
-### 3. Run GhostCode
-
-From any project directory:
+### 3) Run
 
 ```bash
 bun run dev:cli
 ```
 
-Or build and link globally:
+Global link:
 
 ```bash
 bun run link:cli
 ghostcode
 ```
 
-## Storage layout
+Run via bin in local source mode:
 
-Sessions are stored outside your repo, keyed by the directory you run from:
-
+```bash
+GHOSTCODE_DEV=1 ghostcode
+# or
+bun run --filter @ghostcode/cli dev:bin
 ```
+
+## Configuration & Storage
+
+### Runtime store
+
+```text
 ~/.ghostcode/
-  settings.json              # global defaults
-  Ghost.md                   # optional global project memory
+  settings.json
+  Ghost.md
   projects/
-    Users-me-my-app/         # encoded path of process.cwd()
-      <session-id>.jsonl       # append-only session transcript
+    Users-me-my-app/
+      <session-id>.jsonl
 ```
 
-Project-specific config in your repo:
+### Project-level files
 
-```
+```text
 my-app/
-  Ghost.md                   # project instructions for the agent
-  Ghost.local.md             # personal overrides (gitignore this)
+  Ghost.md
+  Ghost.local.md
   .ghostcode/
-    settings.json            # shared project settings (defaultModel, themeName)
-    settings.local.json      # machine-specific overrides (gitignore)
-    preferences.json         # shared project theme (alternative to themeName in settings)
+    settings.json
+    settings.local.json
+    preferences.json
 ```
 
-Theme precedence (highest wins): `settings.local.json` → `.ghostcode/preferences.json` → `settings.json` → `~/.ghostcode/preferences.json` → `~/.ghostcode/settings.json`.
+Theme precedence:
+`settings.local.json` -> `.ghostcode/preferences.json` -> `settings.json` -> `~/.ghostcode/preferences.json` -> `~/.ghostcode/settings.json`
 
-Available identity profiles (Tab → `/theme`): **Spectre**, **Haunt**, **Poltergeist**, **Wraith**, **Phantasm**, **Glitch**.
+Profiles:
+`Spectre`, `Haunt`, `Poltergeist`, `Wraith`, `Phantasm`, `Glitch`
 
-Add to your project `.gitignore`:
+Recommended `.gitignore` entries:
 
-```
+```text
 Ghost.local.md
 .ghostcode/settings.local.json
 ```
 
-## Scripts
+## Commands
 
-| Script              | Description                                    |
-| ------------------- | ---------------------------------------------- |
-| `bun run dev:cli`   | Run the CLI with file watching                 |
-| `bun run build:cli` | Build the CLI to `packages/cli/dist`           |
-| `bun run link:cli`  | Build and globally link the `ghostcode` binary |
+| Script | Description |
+| --- | --- |
+| `bun run dev:cli` | Run CLI with file watch |
+| `bun run build:cli` | Build CLI into `packages/cli/dist` |
+| `bun run link:cli` | Link `ghostcode` globally |
+| `bun run pack:cli` | Generate npm tarball for CLI |
+| `bun run release:check` | Build + pack release artifact |
+| `bun run publish:cli` | Publish `@ghostcode/cli` via Bun |
 
 ## Modes
 
-| Mode      | Tools available                                     |
-| --------- | --------------------------------------------------- |
-| **PLAN**  | `readFile`, `listDirectory`, `glob`, `grep`         |
-| **BUILD** | All PLAN tools plus `writeFile`, `editFile`, `bash` |
+| Mode | Tools |
+| --- | --- |
+| `PLAN` | `readFile`, `listDirectory`, `glob`, `grep` |
+| `BUILD` | PLAN + `writeFile`, `editFile`, `bash` |
 
-## Environment variables
+## Environment Variables
 
-| Variable               | Description                                      |
-| ---------------------- | ------------------------------------------------ |
-| `ANTHROPIC_API_KEY`    | Required for Claude models                       |
-| `OPENAI_API_KEY`       | Required for GPT models                          |
-| `GHOSTCODE_CONFIG_DIR` | Override default `~/.ghostcode` config directory |
+| Variable | Description |
+| --- | --- |
+| `ANTHROPIC_API_KEY` | Required for Claude models |
+| `OPENAI_API_KEY` | Required for GPT models |
+| `GHOSTCODE_CONFIG_DIR` | Override default `~/.ghostcode` path |
+| `GHOSTCODE_DEV` | Force bin to run source (`src`) entry |

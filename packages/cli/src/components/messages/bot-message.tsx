@@ -4,6 +4,8 @@ import { useTheme } from '../../providers/theme';
 import type { Message } from '../../hooks/use-chat';
 import { Mode, type ModeType } from '@ghostcode/shared';
 import { TextAttributes } from '@opentui/core';
+import { useMemo } from 'react';
+import { SyntaxStyle } from '@opentui/core';
 
 type ClientMessagePart = Message['parts'][number];
 type ToolPart = Extract<
@@ -69,6 +71,7 @@ export function BotMessage({
   streaming = false,
 }: Props) {
   const { colors } = useTheme();
+  const markdownSyntaxStyle = useMemo(() => SyntaxStyle.create(), []);
   return (
     <box width="100%" alignItems="center">
       {groupConsecutiveParts(parts).map((group, i) => (
@@ -124,7 +127,16 @@ export function BotMessage({
             if (part.type === 'text') {
               return (
                 <box key={`text-${j}`} paddingX={3} width="100%">
-                  <text>{part.text}</text>
+                  <markdown
+                    content={part.text}
+                    syntaxStyle={markdownSyntaxStyle}
+                    streaming={streaming}
+                    conceal
+                    tableOptions={{
+                      style: 'grid',
+                      widthMode: 'content',
+                    }}
+                  />
                 </box>
               );
             }

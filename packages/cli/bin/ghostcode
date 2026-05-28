@@ -1,6 +1,12 @@
 #!/usr/bin/env bun
-import { bootstrapRuntime } from '../src/lib/config-loader';
+// @ts-nocheck
+const devEntry = '../src/index.tsx';
+const distEntry = '../dist/index.js';
+const forceDev = process.env.GHOSTCODE_DEV === '1';
 
-bootstrapRuntime(process.cwd());
-
-await import('../src/index.tsx');
+try {
+  await import(forceDev ? devEntry : distEntry);
+} catch (error) {
+  // Local dev convenience: if dist does not exist, run directly from source.
+  await import(devEntry);
+}

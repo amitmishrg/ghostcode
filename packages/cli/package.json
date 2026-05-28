@@ -1,16 +1,29 @@
 {
   "name": "@ghostcode/cli",
-  "module": "src/index.tsx",
+  "version": "1.0.0",
+  "module": "dist/index.js",
+  "main": "dist/index.js",
   "type": "module",
-  "private": true,
+  "private": false,
   "bin": {
     "ghostcode": "./bin/ghostcode"
   },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "bun run --watch src/index.tsx",
-    "build": "bun build src/index.tsx --outdir dist --target bun"
+    "dev:bin": "GHOSTCODE_DEV=1 bun ./bin/ghostcode",
+    "build": "bun build src/index.tsx --outdir dist --target bun",
+    "pack": "bun pm pack",
+    "prepack": "bun run build"
   },
   "devDependencies": {
+    "@ghostcode/shared": "workspace:1.0.0",
     "@types/bun": "latest",
     "@types/react": "^19.2.14"
   },
@@ -22,7 +35,6 @@
     "@ai-sdk/openai": "^3.0.64",
     "@ai-sdk/provider-utils": "^4.0.27",
     "@ai-sdk/react": "^3.0.192",
-    "@ghostcode/shared": "workspace:*",
     "@opentui/core": "^0.1.97",
     "@opentui/react": "^0.1.97",
     "ai": "^6.0.190",
